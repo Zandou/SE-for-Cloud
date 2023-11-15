@@ -1,0 +1,17 @@
+# Fichiers de configuration d'IDE
+.idea/
+
+# Fichiers de journalisation
+logs/
+
+# Fichiers générés
+*.class
+*.jar
+*.war
+
+# Dépendances
+node_modules/
+backend/target/
+
+Help.md
+backend.iml

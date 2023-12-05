@@ -3,7 +3,7 @@ import { Form, Stack, Select, TextArea, SelectItem, Button, TextInput, DatePicke
 import Axios from "axios";
 
 const post = async (adresse, dateDispo, Etat, nbPieces, nbSurfaces, nomProprietaire, prenomProprietaire, prix, type, ville) => {
-    Axios.post("http://localhost:8080/logement", {
+    Axios.post(REACT_APP_LOGEMENT_URL + "/logement", { //localhost:8080
         adresse, dateDispo, Etat, nbPieces, nbSurfaces, nomProprietaire, prenomProprietaire, prix, type, ville
     })
         .then((response) => console.log(response))

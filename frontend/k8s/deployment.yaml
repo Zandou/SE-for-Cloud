@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: se-for-cloud
+  namespace: default
+  labels:
+    app: se-for-cloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: se-for-cloud
+  template:
+    metadata:
+      labels:
+        app: se-for-cloud
+    spec:
+      containers:
+        - name: se-for-cloud
+          image: senhao/se-cloud-frontend:v1
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_USER_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: se-configmap
+                  key: USER_URL
+            - name: REACT_APP_LOGEMENT_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: se-configmap
+                  key: LOGEMENT_URL
+            - name: REACT_APP_RESERVATION_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: se-configmap
+                  key: RESERVATION_URL

@@ -56,20 +56,20 @@ const renderConsultHouse = (loading, setLoading, logementResponse, setLogementRe
     }
 
     const postPriceFilter = async (prixMin, prixMax) => {
-        Axios.get("http://localhost:8080/logement/logements/prix?prixMax=" + prixMax + "&prixMin=" + prixMin)
+        Axios.get(REACT_APP_LOGEMENT_URL + "/logement/logements/prix?prixMax=" + prixMax + "&prixMin=" + prixMin)
             .then((response) => { setLogementResponse(response.data) }).catch((error) => console.log(error));
         setLoading(false);
     };
 
     
     const postCityFilter = async (value) => {
-        Axios.get("http://localhost:8080/logement/logements/ville/" + value)
+        Axios.get(REACT_APP_LOGEMENT_URL + "/logement/logements/ville/" + value)
             .then((response) => { setLogementResponse(response.data) }).catch((error) => console.log(error));
         setLoading(false);
     };
 
     const postVisite = async (dateDebut, duree, idLocataire, idLogement) => {
-        Axios.post("http://localhost:9090/reservation/ask", {
+        Axios.post(REACT_APP_RESERVATION_URL + "/reservation/ask", { //localhost:9090
             dateDebut ,
             duree,
             idLocataire,

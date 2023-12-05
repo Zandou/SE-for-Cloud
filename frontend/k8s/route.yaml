@@ -1,0 +1,9 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: se-for-cloud
+  namespace: default
+spec:
+  to:
+    kind: Service
+    name: se-for-cloud

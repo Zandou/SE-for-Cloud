@@ -26,7 +26,7 @@ const Container = styled.div`
 const login = async (email, password, setAuthenticated, setName, setUserType, type) => {
   console.log(email + password);
   Axios.get(
-    REACT_APP_USER_URL + "/users/" + type + "/" + email + "/" + password //localhost:8888
+    process.env.REACT_APP_USER_URL + "/users/" + type + "/" + email + "/" + password //localhost:8888
   ).then((response) => {
     console.log(response);
     setAuthenticated(true);

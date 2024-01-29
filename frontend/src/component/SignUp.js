@@ -10,7 +10,7 @@ import {
 import Axios from "axios";
 
 const post = async (nom, email, telephone, mot_de_passe, type) => {
-  Axios.post("http://localhost:8888/users/" + type, {
+  Axios.post(process.env.REACT_APP_USER_URL + "/users/" + type, { //localhost:8888
     id: 0,
     nom,
     email,

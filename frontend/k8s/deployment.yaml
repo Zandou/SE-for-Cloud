@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: se-for-cloud
-          image: senhao/se-cloud-frontend:v1
+          image: senhao/se-cloud-frontend:latest
           ports:
             - containerPort: 3000
           env:

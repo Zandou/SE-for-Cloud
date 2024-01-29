@@ -20,10 +20,23 @@ const Space = styled.div`
    
     padding-top : 100px;`;
 
+const setUser = () => {
+    localStorage.setItem(
+        "userData",
+        JSON.stringify({
+          isAuthenticated: true,
+          name: "Dubois",
+          id: 1,
+          userType: "locataire",
+        })
+      );
+}
+
 export const Welcome = () => {
     return (
         <div>
             <Wrapper />
+            {setUser()}
             <h1>Bienvenue sur RBeeNBee</h1>
             <p>Faites de vos envies une réalité</p>
             <img src={WelcomeImg} style={{width:"80%", height:"20%", paddingTop: "12px", borderRadius:"24px"}}/>

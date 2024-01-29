@@ -1,0 +1,37 @@
+# Kubernetes API version
+apiVersion: apps/v1
+# Deployment object
+kind: Deployment
+metadata:
+  name: service-logement
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-logement
+  template:
+    metadata:
+      labels:
+        # The label the pods created from the pod template should have
+        app: service-logement
+    spec:
+      containers:
+        # The container name to execute pods
+        - name: service-logement
+          image: senhao/service-logement
+          ports:
+            # Assign ports to expose container
+            - containerPort: 8080
+          volumeMounts:
+            - name: service-logement-secret
+              mountPath: ./application.properties
+              subPath: application.properties
+
+      volumes:
+        - name: service-logement-secret
+          secret:
+            secretName: service-logement-secret
+            items:
+              - key: application.properties
+                path: application.properties

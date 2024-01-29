@@ -43,15 +43,6 @@ const HeaderTools = (isAuthenticated, name) => {
         <div style={{ display: "flex", margin: "auto", paddingRight: "16px" }}>
           {name}
         </div>
-        <HeaderGlobalAction
-          aria-label="Déconnexion"
-          href="/"
-          onClick={() => {
-            SignOut();
-          }}
-        >
-          <Logout size={20} />
-        </HeaderGlobalAction>
       </div>
     );
   } else {

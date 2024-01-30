@@ -1,19 +1,13 @@
 apiVersion: v1
-# Kind for service
 kind: Service
 metadata:
-  # Name your service
   name: service-logement-service
-  labels:
-    app: service-logement-service
-  namespace: default
 spec:
-  # Choose how to expose your service
-  type: NodePort
-  ports:
-    # The port number to expose the service
-    - port: 8080
-      nodePort: 30002
-  # Pod to route service traffic  
   selector:
     app: service-logement
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 32303
+  type: LoadBalancer

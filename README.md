@@ -54,3 +54,8 @@ SELECT * FROM logement;
 kubectl port-forward <NAME_OF_THE_POD> 3000:3000
 ```
 
+### The app will now be port-forwarded to your localhost:3000
+
+http://localhost:3000
+
+
